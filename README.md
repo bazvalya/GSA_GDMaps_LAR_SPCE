@@ -18,3 +18,8 @@ A source code for Chapter 2 of a Master's Thesis titled "Rethinking Global Sensi
 ## Development
 
 This repository is under active development, with the goal of providing a set of reusable code to make it easy for researchers to replicate results and utilse our framework for global sensitivity analysis. Whether you intend to reproduce our discoveries or explore new applications, this repository offers the essential tools and resources to assist you in your pursuits.
+
+## References 
+
+- A substantial portion of our implementation (GDMaps PCE excluding LAR) stems from [GDM-PCE](https://github.com/katiana22/GDM-PCE).
+- The SPCE implementation is based on the method proposed by Zhu & Sudret in [this paper](https://arxiv.org/abs/2202.03344).
