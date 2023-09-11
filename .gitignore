@@ -1,3 +1,16 @@
+data/data_PT/data_3_param/*.pickle
+data/data_PT/data_3_param/*.pkl.lzma
+data/data_PT/data_3_param/arrays_for_GDMaps/*.pkl.lzma
+data/data_PT/data_6_param/*.pickle
+data/data_PT/data_6_param/*.pkl.lzma
+data/data_PT/data_6_param/arrays_for_GDMaps/*.pickle
+data/data_PT/data_6_param/arrays_for_GDMaps/micro_level/*.pkl.lzma
+data/data_sugarscape/Sobol/output_array/*.pickle
+data/data_sugarscape/Sobol/output_array/*.npz
+data/data_sugarscape/GLD/*.pickle
+**/.DS_Store
+**/.ipynb_checkpoints
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
