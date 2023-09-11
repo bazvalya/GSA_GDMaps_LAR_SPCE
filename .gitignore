@@ -1,13 +1,13 @@
-data/data_PT/data_3_param/*.pickle
-data/data_PT/data_3_param/*.pkl.lzma
-data/data_PT/data_3_param/arrays_for_GDMaps/*.pkl.lzma
-data/data_PT/data_6_param/*.pickle
-data/data_PT/data_6_param/*.pkl.lzma
-data/data_PT/data_6_param/arrays_for_GDMaps/*.pickle
-data/data_PT/data_6_param/arrays_for_GDMaps/micro_level/*.pkl.lzma
-data/data_sugarscape/Sobol/output_array/*.pickle
-data/data_sugarscape/Sobol/output_array/*.npz
-data/data_sugarscape/GLD/*.pickle
+notebooks/data/data_PT/data_3_param/*.pickle
+notebooks/data/data_PT/data_3_param/*.pkl.lzma
+notebooks/data/data_PT/data_3_param/arrays_for_GDMaps/*.pkl.lzma
+notebooks/data/data_PT/data_6_param/*.pickle
+notebooks/data/data_PT/data_6_param/*.pkl.lzma
+notebooks/data/data_PT/data_6_param/arrays_for_GDMaps/*.pickle
+notebooks/data/data_PT/data_6_param/arrays_for_GDMaps/micro_level/*.pkl.lzma
+notebooks/data/data_sugarscape/Sobol/output_array/*.pickle
+notebooks/data/data_sugarscape/Sobol/output_array/*.npz
+notebooks/data/data_sugarscape/GLD/*.pickle
 **/.DS_Store
 **/.ipynb_checkpoints
 
