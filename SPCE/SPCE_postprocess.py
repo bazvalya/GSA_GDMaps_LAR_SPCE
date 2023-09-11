@@ -77,3 +77,67 @@ def explicit_pdf(y_pts, x, c, sigma, D, A, dist_obj, NQ=40):
     return y_pdf
 
 
+def SPCE_first_order_indices(pce_coefficients,
+                             dist_object_x,
+                             multi_index_set,
+                             sigma,
+                             with_Z = False): 
+    """
+    SPCE estimates for the first order Sobol indices.
+    """
+    outputs_number = np.shape(pce_coefficients)[1]
+
+    variance = np.sum(pce_coefficients[1:] ** 2, axis=0)
+    
+    if with_Z:
+        inputs_number = len(dist_object_x.marginals) + 1
+    else:
+        inputs_number = len(dist_object_x.marginals)
+        
+    multi_index_set = multi_index_set
+
+    first_order_indices = np.zeros([inputs_number, outputs_number])
+    # take all multi-indices except 0-index
+    idx_no_0 = np.delete(multi_index_set, 0, axis=0)
+    for nn in range(inputs_number):
+        # remove nn-th column
+        idx_no_0_nn = np.delete(idx_no_0, nn, axis=1)
+        # we want the rows with all indices (except nn) equal to zero
+        sum_idx_rows = np.sum(idx_no_0_nn, axis=1)
+        zero_rows = np.asarray(np.where(sum_idx_rows == 0)).flatten() + 1
+        variance_contribution = np.sum(pce_coefficients[zero_rows, :] ** 2, axis=0)
+        first_order_indices[nn, :] = variance_contribution / (variance + sigma**2)
+    first_order_indices = first_order_indices
+    return first_order_indices
+
+
+def SPCE_total_order_indices(pce_coefficients,
+                             dist_object_x,
+                             multi_index_set,
+                             sigma,
+                             with_Z = False):
+    """
+    SPCE estimates for the total order Sobol indices.
+    """
+
+    outputs_number = np.shape(pce_coefficients)[1]
+
+    variance = np.sum(pce_coefficients[1:] ** 2, axis=0)
+    if with_Z:
+        inputs_number = len(dist_object_x.marginals) + 1
+    else:
+        inputs_number = len(dist_object_x.marginals)
+        
+    multi_index_set = multi_index_set
+
+    total_order_indices = np.zeros([inputs_number, outputs_number])
+    for nn in range(inputs_number):
+        # we want all multi-indices where the nn-th index is NOT zero
+        idx_column_nn = np.array(multi_index_set)[:, nn]
+        nn_rows = np.asarray(np.where(idx_column_nn != 0)).flatten()
+        variance_contribution = np.sum(pce_coefficients[nn_rows, :] ** 2, axis=0)
+        total_order_indices[nn, :] = variance_contribution / (variance + sigma**2)
+    total_order_indices = total_order_indices
+    return total_order_indices
+
+
